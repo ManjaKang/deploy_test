@@ -101,19 +101,19 @@ export default function App() {
 }
 
 function Sky(props) {
-  const { nodes, materials } = useGLTF('./Sky.glb')
+  const { nodes, materials } = useGLTF(process.env.PUBLIC_URL + '/Sky.glb')
   const _materials = new MeshStandardMaterial(materials[Object.keys(materials)[0]])
   return <mesh {...props} geometry={nodes.Sky.geometry} material={_materials} dispose={null}></mesh>
 }
 
 function Ocean(props) {
-  const { nodes, materials } = useGLTF('./Ocean.glb')
+  const { nodes, materials } = useGLTF(process.env.PUBLIC_URL + '/Ocean.glb')
   const _materials = new MeshStandardMaterial(materials[Object.keys(materials)[0]])
   return <mesh {...props} geometry={nodes.Ocean.geometry} material={_materials} dispose={null}></mesh>
 }
 
 function Island(props) {
-  const { nodes, materials } = useGLTF('./Island.glb')
+  const { nodes, materials } = useGLTF(process.env.PUBLIC_URL + '/Island.glb')
   const _materials = new MeshStandardMaterial(materials[Object.keys(materials)[0]])
   return <mesh receiveShadow {...props} geometry={nodes.Island.geometry} material={_materials} dispose={null}></mesh>
 }
@@ -148,7 +148,7 @@ const Item = (props) => {
   const setSelectedMesh = props.setSelectedMesh
   const boundaryRef = props.boundaryRef
   const data = props.data
-  const { nodes, materials } = useGLTF(`./${data.name}.glb`)
+  const { nodes, materials } = useGLTF(process.env.PUBLIC_URL + `/${data.name}.glb`)
   const _materials = new MeshStandardMaterial(materials[Object.keys(materials)[0]])
   const [hovered, setHovered] = useState(false)
   const [selected, setSelected] = useState(false)
